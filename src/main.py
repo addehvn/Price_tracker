@@ -1,6 +1,7 @@
 import bs4 
 import requests
 import scraper
+import price_tracker
 link = input("Enter nike product's link: ")
 
 r=requests.get(link)
@@ -15,20 +16,24 @@ while loop == True:
     print()
     print('1. Full detail')
     print('2. Collection name')
-    print('3. product name')
-    print('4. price')
-    print('5. Exit')
+    print('3. Product name')
+    print('4. Price')
+    print('5. Turn on checker')
+    print('6. Exit')
     choose=int(input('Choose a number from list: '))
     if choose == 1:
-        scraper.details(soup)
+        print(scraper.details(soup))
     if choose == 2: 
-        scraper.collection(soup)
+        print(scraper.collection(soup))
     if choose == 3:
-        scraper.product(soup)
+        print(scraper.product(soup))
     if choose == 4:
-        scraper.price(soup)
+        print(scraper.price(soup))
     if choose == 5:
+        price_tracker.check(scraper,soup)
+    if choose == 6:
         print('Have a nice day')
         loop = False  
     else :
         choose 
+    
